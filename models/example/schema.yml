@@ -1,0 +1,9 @@
+
+version: 2
+
+sources:
+  - name: raw
+    database: credit-risk-analytics-497201
+    schema: raw
+    tables:
+      - name: credit_raw

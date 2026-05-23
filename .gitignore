@@ -1,0 +1,20 @@
+# dbt
+target/
+dbt_packages/
+logs/
+manifest.json
+run_results.json
+
+# environment
+venv/
+__pycache__/
+*.pyc
+.env
+
+# credentials
+*.json
+profiles.yml
+
+# system/editor
+.vscode/
+.DS_Store
