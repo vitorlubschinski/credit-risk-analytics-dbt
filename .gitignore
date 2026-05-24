@@ -18,3 +18,4 @@ profiles.yml
 # system/editor
 .vscode/
 .DS_Store
+dbt_internal_packages/
