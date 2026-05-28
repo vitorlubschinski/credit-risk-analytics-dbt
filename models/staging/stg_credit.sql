@@ -33,12 +33,12 @@ cleaned as (
         dpd_60_89,
         num_dependents,
 
+        --testes
+
         CASE
             WHEN credit_utilization < 0 THEN NULL
             ELSE credit_utilization
         END                                    as credit_utilization,
-
-        SAFE_CAST(monthly_income_raw AS FLOAT64) as monthly_income,
 
     from renamed
 
