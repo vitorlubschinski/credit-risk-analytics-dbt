@@ -32,17 +32,17 @@ cleaned as (
         END as age,
         
         CASE 
-            WHEN late_payments_30_59_days >= 90 THEN NULL
+            WHEN late_payments_30_59_days < 0 THEN NULL
             ELSE late_payments_30_59_days
         END as late_payments_30_59_days,
 
         CASE 
-            WHEN late_payments_60_89_days >= 90 THEN NULL
+            WHEN late_payments_60_89_days < 0 THEN NULL
             ELSE late_payments_60_89_days
         END as late_payments_60_89_days,
         
         CASE 
-            WHEN late_payments_90_plus_days >= 90 THEN NULL
+            WHEN late_payments_90_plus_days < 0 THEN NULL
             ELSE late_payments_90_plus_days
         END as late_payments_90_plus_days,
 
