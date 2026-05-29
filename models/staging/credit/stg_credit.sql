@@ -5,7 +5,6 @@ with source as (
 
 renamed as (
     select
-        int64_field_0 as customer_id,
         SeriousDlqin2yrs as default_last_2y,
         RevolvingUtilizationOfUnsecuredLines as credit_utilization_ratio,
         age as age,
@@ -22,7 +21,7 @@ renamed as (
 
 cleaned as (
     select
-        customer_id,
+        ROW_NUMBER() OVER () as customer_id,
         default_last_2y,
         credit_utilization_ratio,
 

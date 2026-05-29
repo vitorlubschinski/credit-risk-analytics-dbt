@@ -6,3 +6,55 @@ sources:
     schema: raw
     tables:
       - name: credit_raw
+        description: "Dados brutos — Give Me Some Credit (Kaggle)"
+
+models:
+  - name: stg_credit
+    description: "Staging — limpeza, padronização e tipagem"
+    columns:
+
+      - name: customer_id
+        description: "ID sequencial gerado via ROW_NUMBER()"
+        tests:
+          - unique
+          - not_null
+
+      - name: default_last_2y
+        description: "Inadimplência nos últimos 2 anos (0 ou 1)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+              quote: false
+
+      - name: credit_utilization_ratio
+        description: "Utilização do limite de crédito rotativo"
+        tests:
+          - not_null
+
+      - name: age
+        description: "Idade — NULL se <= 0 ou > 100"
+
+      - name: late_payments_30_59_days
+        description: "Atrasos 30-59 dias — NULL se negativo"
+
+      - name: late_payments_60_89_days
+        description: "Atrasos 60-89 dias — NULL se negativo"
+
+      - name: late_payments_90_plus_days
+        description: "Atrasos 90+ dias — NULL se negativo"
+
+      - name: debt_to_income_ratio
+        description: "Relação dívida/renda"
+
+      - name: monthly_income
+        description: "Renda mensal — NULL se negativo"
+
+      - name: total_credit_lines
+        description: "Linhas de crédito abertas — NULL se negativo"
+
+      - name: real_estate_loans_count
+        description: "Empréstimos imobiliários — NULL se negativo"
+
+      - name: dependents_count
+        description: "Dependentes — NULL se 'NA' ou negativo"
